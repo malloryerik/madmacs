@@ -1,0 +1,3 @@
+[submodule "madmacs"]
+	path = madmacs
+	url = https://github.com/malloryerik/madmacs
