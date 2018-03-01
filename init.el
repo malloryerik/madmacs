@@ -5,6 +5,7 @@
 ;; I think this stops CUA-mode from taking over C-v and M-v
 (setq cua-enable-cua-keys nil)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; MULTIPLE CURSORS  see -> https://github.com/magnars/multiple-cursors.el
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
@@ -12,6 +13,7 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ORG-MODE
 ;; turn on syntax highlighting in org-mode code blocks
 (setq org-src-fontify-natively t)
@@ -44,8 +46,18 @@
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
-;;;;;;;;;;;;;;;;;;
-;; JS -- See also setup-js.el
+;;;;;;;;
+;; super-save
+;; super-save auto-saves your buffers, when certain events happen - e.g. you switch between buffers, an Emacs frame loses focus, etc. You can think of it as both something that augments and replaces the standard auto-save-mode.
+(super-save-mode +1)
+(setq auto-save-default nil)
+
+(unless (package-installed-p 'super-save)
+  (package-refresh-contents)
+  (package-install 'super-save))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; JAVASCRIPT -- See also setup-js.el
 (require 'js2-mode)
 (require 'rjsx-mode)
 (require 'react-snippets)
@@ -142,7 +154,7 @@
 ;; (flycheck-add-mode 'javascript-eslint 'web-mode)
 ;; (flycheck-add-next-checker 'javascript-eslint 'jsx-tide 'append)
 
-
+;;;;;;;;;;
 ;; EIN - Emacs IPython / Jupyter 
 
 (require 'ein)
@@ -151,6 +163,7 @@
 (require 'ein-subpackages)
 (require 'fountain-mode)
 
+;;;;;;;
 ;; adaptive wrap -- wrap to level of indent
 (when (fboundp 'adaptive-wrap-prefix-mode)
   (defun my-activate-adaptive-wrap-prefix-mode ()
@@ -158,18 +171,21 @@
     (adaptive-wrap-prefix-mode (if visual-line-mode 1 -1)))
   (add-hook 'visual-line-mode-hook 'my-activate-adaptive-wrap-prefix-mode))
 
+;;;;;;;;;;
 ;; RAILWAYCAT EMACS MAC PORT STUFF 
  (setq mac-option-modifier 'meta)
  (setq mac-command-modifier 'super)
  (setq mac-pass-command-to-system nil)
 ;; ! RAILWAYCAT
 
+;;;;;
 ;; Aquamacs -- make sure no toolbar!
 (tool-bar-mode 0)
 
 (setq column-number-mode t)
 (setq line-number-mode t)
 
+;;;;;;;;;;;;;;;;;;;;
 ;; Neotree 
 (setq neo-window-width 20)
 (setq neo-window-fixed-size nil) ;; make neo-window draggable
@@ -477,7 +493,7 @@
  '(org-table ((t (:foreground "Blue1" :family "Courier New"))))
  '(package-selected-packages
    (quote
-    (adaptive-wrap org-easy-img-insert magit sublime-themes faff-theme react-snippets telephone-line evil-anzu powerline-evil atom-one-dark-theme dracula-theme tide company-tern ## discover-js2-refactor js2-mode itail indium osx-dictionary rjsx-mode color-theme-sanityinc-tomorrow fountain-mode ac-alchemist alchemist ein ein-mumamo ac-python ac-anaconda eldoc-overlay-mode css-eldoc cljdoc org-bullets lua-mode multiple-cursors web-mode clojure-project-mode typed-clojure-mode cider-decompile move-line spacegray-theme solarized-theme occidental-theme monokai-theme naquadah-theme farmhouse-theme rainbow-mode ac-cider neotree tagedit smex rainbow-delimiters projectile paredit ido-ubiquitous exec-path-from-shell)))
+    (super-save adaptive-wrap org-easy-img-insert magit sublime-themes faff-theme react-snippets telephone-line evil-anzu powerline-evil atom-one-dark-theme dracula-theme tide company-tern ## discover-js2-refactor js2-mode itail indium osx-dictionary rjsx-mode color-theme-sanityinc-tomorrow fountain-mode ac-alchemist alchemist ein ein-mumamo ac-python ac-anaconda eldoc-overlay-mode css-eldoc cljdoc org-bullets lua-mode multiple-cursors web-mode clojure-project-mode typed-clojure-mode cider-decompile move-line spacegray-theme solarized-theme occidental-theme monokai-theme naquadah-theme farmhouse-theme rainbow-mode ac-cider neotree tagedit smex rainbow-delimiters projectile paredit ido-ubiquitous exec-path-from-shell)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(powerline-color1 "#191919")
