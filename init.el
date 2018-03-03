@@ -63,13 +63,15 @@
 (require 'react-snippets)
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
-(add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
-(add-hook 'js2-mode-hook 'electric-pair-mode)
-(add-hook 'js2-mode-hook 'rjsx-mode)
+(add-hook 'rjsx-mode-hook #'js2-imenu-extras-mode)
+(add-hook 'rjsx-mode-hook 'electric-pair-mode)
+;; (add-hook 'js2-mode-hook 'rjsx-mode)
+
+;; ------------- indium interactive stuff
 (require 'indium)
-(add-hook 'js2-mode-hook #'indium-interaction-mode)
+;; (add-hook 'rjsx-mode-hook #'indium-interaction-mode)
 
 ;; -----------TERN
 (require 'company)
@@ -187,7 +189,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;
 ;; Neotree 
-(setq neo-window-width 20)
+(setq neo-window-width 17)
 (setq neo-window-fixed-size nil) ;; make neo-window draggable
 
 ;; (set-face-attribute 'default t :font "Courier New" :family "Courier New")
